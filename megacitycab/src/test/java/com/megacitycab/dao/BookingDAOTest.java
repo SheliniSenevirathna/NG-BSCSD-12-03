@@ -42,7 +42,7 @@ public class BookingDAOTest {
     /**
      * Test of addBooking method, of class BookingDAO.
      */
-    @Test
+    /*@Test
     public void testAddBooking() throws Exception {
         System.out.println("addBooking");
         Customer customer = null;

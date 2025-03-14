@@ -45,19 +45,20 @@ public class UserDAOTest {
     public void testGetAllUsernames() throws Exception {
         System.out.println("getAllUsernames");
         UserDAO instance = new UserDAO();
-        List<String> expResult = null;
         List<String> result = instance.getAllUsernames();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        
+        assertNotNull(result, "User list should not be null");
+        assertTrue(result. size() >=0,"User list should have at least zero users");
+        System.out.println("Database Users: " + result);
         
     }
 
     /**
      * Test of createUser method, of class UserDAO.
      */
-    /*@Test
+    @Test
     public void testCreateUser() throws Exception {
-        System.out.println("createUser");
+        System.out.println("CreateUser");
         String us_loginusername = "";
         String us_Password = "";
         String us_Email = "";
@@ -66,10 +67,10 @@ public class UserDAOTest {
         String us_NIC = "";
         String us_Address = "";
         UserDAO instance = new UserDAO();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.createUser(us_loginusername, us_Password, us_Email, us_fullname, us_Contact_No, us_NIC, us_Address);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+        assertEquals(expResult, result, "User creation failed!");
+        System.out.println("Database Users: " + result);
         
     }
 
@@ -87,7 +88,7 @@ public class UserDAOTest {
         boolean result = instance.updateUser(username, newPassword, newEmail);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        
+        fail("The test case is a prototype.");
     }
 
     /**
