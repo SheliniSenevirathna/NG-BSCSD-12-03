@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2025 at 09:01 AM
+-- Generation Time: Mar 16, 2025 at 05:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -164,6 +164,53 @@ CREATE TABLE `tblbill` (
   `b_Modified_date` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tblbill`
+--
+
+INSERT INTO `tblbill` (`Bill_id`, `b_start_meter_reading`, `b_end_meter_reading`, `b_date`, `b_grand_total`, `b_disscount`, `b_sub_total`, `b_tax`, `b_total`, `b_bk_status`, `b_Created_by`, `b_Created_date`, `b_Modified_by`, `b_Modified_date`) VALUES
+(1, 300, 500, '2025-03-18', 7500, 12, 7400, 3, 7380, NULL, NULL, '2025-03-16 03:20:15', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblbooking`
+--
+
+CREATE TABLE `tblbooking` (
+  `bk_id` int(11) NOT NULL,
+  `bk_us_user_id` int(11) DEFAULT NULL,
+  `bk_v_id` int(11) DEFAULT NULL,
+  `bk_from_date` int(11) DEFAULT NULL,
+  `bk_to_date` int(11) DEFAULT NULL,
+  `bk_pickup_location` varchar(100) DEFAULT NULL,
+  `bk_dropoff_location` varchar(100) DEFAULT NULL,
+  `passengers` int(11) DEFAULT NULL,
+  `cab_type` varchar(50) DEFAULT NULL,
+  `trip_type` varchar(50) DEFAULT NULL,
+  `bk_driver_us_UserID` int(11) DEFAULT NULL,
+  `bk_created_by` varchar(50) DEFAULT NULL,
+  `bk_created_date` timestamp NULL DEFAULT current_timestamp(),
+  `bk_modified_by` varchar(50) DEFAULT NULL,
+  `bk_modified_date` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tblbooking`
+--
+
+INSERT INTO `tblbooking` (`bk_id`, `bk_us_user_id`, `bk_v_id`, `bk_from_date`, `bk_to_date`, `bk_pickup_location`, `bk_dropoff_location`, `passengers`, `cab_type`, `trip_type`, `bk_driver_us_UserID`, `bk_created_by`, `bk_created_date`, `bk_modified_by`, `bk_modified_date`) VALUES
+(1, 101, 201, 2023, 2023, '123 Main St, City A', '456 Elm St, City B', 2, 'Sedan', 'One-way', 301, '101', '2025-03-16 05:50:57', '101', NULL),
+(2, 102, 202, 2023, 2023, '789 Oak St, City C', '123 Main St, City A', 4, 'SUV', 'Round-trip', 302, '102', '2025-03-16 05:50:57', '102', NULL),
+(3, 103, 203, 2023, 2023, '456 Elm St, City B', '789 Oak St, City C', 3, 'Luxury', 'One-way', 303, '103', '2025-03-16 05:50:57', '103', NULL),
+(4, 104, 204, 2023, 2023, '321 Pine St, City D', '654 Maple St, City E', 2, 'Sedan', 'Round-trip', 304, '104', '2025-03-16 05:50:57', '104', NULL),
+(5, 105, 205, 2023, 2023, '654 Maple St, City E', '321 Pine St, City D', 5, 'SUV', 'One-way', 305, '105', '2025-03-16 05:50:57', '105', NULL),
+(6, 106, 206, 2023, 2023, '987 Cedar St, City F', '123 Main St, City A', 3, 'Luxury', 'Round-trip', 306, '106', '2025-03-16 05:50:57', '106', NULL),
+(7, 107, 207, 2023, 2023, '123 Main St, City A', '987 Cedar St, City F', 1, 'Sedan', 'One-way', 307, '107', '2025-03-16 05:50:57', '107', NULL),
+(8, 108, 208, 2023, 2023, '456 Elm St, City B', '654 Maple St, City E', 4, 'SUV', 'Round-trip', 308, '108', '2025-03-16 05:50:57', '108', NULL),
+(9, 109, 209, 2023, 2023, '789 Oak St, City C', '321 Pine St, City D', 2, 'Luxury', 'One-way', 309, '109', '2025-03-16 05:50:57', '109', NULL),
+(10, 110, 210, 2023, 2023, '654 Maple St, City E', '987 Cedar St, City F', 3, 'Sedan', 'Round-trip', 310, '110', '2025-03-16 05:50:57', '110', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -316,7 +363,63 @@ INSERT INTO `users` (`UserID`, `us_fullname`, `us_Password`, `us_Usertype`, `us_
 (8, 'Poorna Sajeewani', '1478', NULL, 'Dampe,Piliyandala.', 'poorna@gmail.com', '0769853621', '198526974832', 'INACTIVE', 'ppp11', NULL, '2025-03-13 11:45:56', NULL, NULL),
 (9, 'Shriyani Munidasa', '2225', NULL, 'Galle', 'shriyani@gmail.com', '0774609774', '1962987456932', 'INACTIVE', 'shr222', NULL, '2025-03-13 11:50:29', NULL, NULL),
 (10, 'Amaya Perera', '1596', NULL, 'No.25/B, Nugegoda', 'amaya@gmail.com', '0789562385', '20016598745', 'INACTIVE', 'ami', NULL, '2025-03-13 11:53:15', NULL, NULL),
-(11, 'Gayani Perera', '9874', NULL, 'Homagama', 'gayani@gmail.com', '0774609774', '19968523974', 'INACTIVE', 'gaya', NULL, '2025-03-13 12:18:13', NULL, NULL);
+(11, 'Gayani Perera', '9874', NULL, 'Homagama', 'gayani@gmail.com', '0774609774', '19968523974', 'INACTIVE', 'gaya', NULL, '2025-03-13 12:18:13', NULL, NULL),
+(18, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-14 13:53:39', NULL, NULL),
+(33, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 10:34:18', NULL, NULL),
+(34, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 10:34:54', NULL, NULL),
+(35, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 10:39:12', NULL, NULL),
+(36, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 10:39:46', NULL, NULL),
+(37, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 10:40:47', NULL, NULL),
+(38, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:27:54', NULL, NULL),
+(39, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:28:23', NULL, NULL),
+(40, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:32:52', NULL, NULL),
+(41, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:33:20', NULL, NULL),
+(42, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:36:07', NULL, NULL),
+(43, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:37:14', NULL, NULL),
+(44, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:47:50', NULL, NULL),
+(45, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:48:16', NULL, NULL),
+(46, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:52:47', NULL, NULL),
+(47, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:53:12', NULL, NULL),
+(48, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:58:13', NULL, NULL),
+(49, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 11:58:59', NULL, NULL),
+(50, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 12:02:22', NULL, NULL),
+(51, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 12:02:48', NULL, NULL),
+(52, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 12:25:43', NULL, NULL),
+(53, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 12:26:22', NULL, NULL),
+(54, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 12:27:10', NULL, NULL),
+(55, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 12:48:49', NULL, NULL),
+(56, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 12:49:14', NULL, NULL),
+(57, 'Amali Perera', '7890', NULL, 'Kandy', 'amali@gmail.com', '0785946258', '20015987452', 'INACTIVE', 'amali', NULL, '2025-03-15 15:04:44', NULL, NULL),
+(58, 'Amali Perera', '7890', NULL, 'Kandy', 'amali@gmail.com', '0785946258', '20015987452', 'INACTIVE', 'amali', NULL, '2025-03-15 15:07:40', NULL, NULL),
+(59, 'Kawya Perera', '7890', NULL, 'Anuradhapura', 'kawya@gmail.com', '0785946258', '20015987452', 'INACTIVE', 'amali', NULL, '2025-03-15 15:11:11', NULL, NULL),
+(60, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 16:31:17', NULL, NULL),
+(61, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 16:31:46', NULL, NULL),
+(62, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 16:37:51', NULL, NULL),
+(63, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 16:38:24', NULL, NULL),
+(64, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 16:50:17', NULL, NULL),
+(65, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 16:50:38', NULL, NULL),
+(66, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:01:00', NULL, NULL),
+(67, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:01:32', NULL, NULL),
+(68, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:12:33', NULL, NULL),
+(69, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:12:59', NULL, NULL),
+(70, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:19:16', NULL, NULL),
+(71, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:19:42', NULL, NULL),
+(72, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:33:45', NULL, NULL),
+(73, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:34:08', NULL, NULL),
+(74, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:42:58', NULL, NULL),
+(75, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 17:43:25', NULL, NULL),
+(76, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 18:10:36', NULL, NULL),
+(78, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 18:15:56', NULL, NULL),
+(79, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 18:16:22', NULL, NULL),
+(80, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 18:40:15', NULL, NULL),
+(81, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 18:40:48', NULL, NULL),
+(82, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 19:04:25', NULL, NULL),
+(83, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-15 19:04:47', NULL, NULL),
+(84, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-16 03:34:03', NULL, NULL),
+(85, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-16 03:34:26', NULL, NULL),
+(86, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-16 03:45:24', NULL, NULL),
+(87, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-16 03:46:18', NULL, NULL),
+(88, '', '', NULL, '', '', '', '', 'INACTIVE', '', NULL, '2025-03-16 04:03:39', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -354,6 +457,12 @@ ALTER TABLE `drivers`
 --
 ALTER TABLE `tblbill`
   ADD PRIMARY KEY (`Bill_id`);
+
+--
+-- Indexes for table `tblbooking`
+--
+ALTER TABLE `tblbooking`
+  ADD PRIMARY KEY (`bk_id`);
 
 --
 -- Indexes for table `tblbookingdetail`
@@ -420,6 +529,18 @@ ALTER TABLE `drivers`
   MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tblbill`
+--
+ALTER TABLE `tblbill`
+  MODIFY `Bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tblbooking`
+--
+ALTER TABLE `tblbooking`
+  MODIFY `bk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `tblbookingdetail`
 --
 ALTER TABLE `tblbookingdetail`
@@ -447,7 +568,7 @@ ALTER TABLE `tblvehicletype`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` double NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `UserID` double NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- Constraints for dumped tables
