@@ -129,10 +129,10 @@
     </div>
     <div class="nav">
         <a href="index.jsp">Home</a>
-        <a href="booking.html">Ride</a>
-        <a href="contact_us.html">Contact us</a>
-        <a href="about_us.html">About us</a>
-        <a href="login.html">Login</a>
+        <a href="booking.jsp">Ride</a>
+        <a href="contact_us.jsp">Contact us</a>
+        <a href="about_us.jsp">About us</a>
+        <a href="login.jsp">Login</a>
         <a href="index.jsp">Logout</a>
        
     </div>

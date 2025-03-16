@@ -38,12 +38,12 @@ public class BookingDAO {
     public void addBooking(Customer customer, Booking booking) throws SQLException {
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
             // Insert customer
-            String customerQuery = "INSERT INTO customers (name, address, nic, phone) VALUES (?, ?, ?, ?)";
+            String customerQuery = "INSERT INTO customers (name, address, nic, contact_no) VALUES (?, ?, ?, ?)";
             try (PreparedStatement customerStatement = connection.prepareStatement(customerQuery, Statement.RETURN_GENERATED_KEYS)) {
                 customerStatement.setString(1, customer.getName());
                 customerStatement.setString(2, customer.getAddress());
                 customerStatement.setString(3, customer.getNic());
-                customerStatement.setString(4, customer.getPhone());
+                customerStatement.setString(4, customer.getContact_no());
                 customerStatement.executeUpdate();
 
                 // Get the generated customer ID
@@ -54,15 +54,25 @@ public class BookingDAO {
             }
 
             // Insert booking
-            String bookingQuery = "INSERT INTO bookings (customer_id, destination, distance, total_fare) VALUES (?, ?, ?, ?)";
+            String bookingQuery = "INSERT INTO tblbooking (bk_pickup_location, bk_dropoff_location, bk_from_date, bk_to_date,passengers,cab_type,trip_type) VALUES (?, ?, ?, ?,?,?,?)";
             try (PreparedStatement bookingStatement = connection.prepareStatement(bookingQuery)) {
-                bookingStatement.setInt(1, booking.getCustomerId());
-                bookingStatement.setString(2, booking.getDestination());
-                bookingStatement.setDouble(3, booking.getDistance());
-                bookingStatement.setDouble(4, booking.getTotalFare());
+                bookingStatement.setString(1, booking.getBk_pickup_location());
+                bookingStatement.setString(2, booking.getBk_dropoff_location());
+                bookingStatement.setString(3, booking.getBk_from_date());
+                bookingStatement.setString(4, booking.getBk_to_date());
+                bookingStatement.setString(5, booking.getPassengers());
+                bookingStatement.setString(6, booking.getCab_type());
+                bookingStatement.setString(7, booking.getTrip_type());
                 bookingStatement.executeUpdate();
+                
+                bookingStatement.executeUpdate();
+    System.out.println("Booking inserted successfully!");
+} catch (SQLException e) {
+    e.printStackTrace(); // Print error details
+
             }
         }
+        
     }
     
     
@@ -80,6 +90,8 @@ public class BookingDAO {
                     booking.setDistance(resultSet.getDouble("distance"));
                     booking.setTotalFare(resultSet.getDouble("total_fare"));
                     bookings.add(booking);
+                    
+                    
                 }
             }
         }
@@ -132,4 +144,20 @@ public class BookingDAO {
             }
         }
     }
+    /*public String AssignDriver(int Driver_id, int bookingId) throws SQLException {
+    try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
+        String query = "UPDATE `bookings` SET `driver_id`=? WHERE `booking_id`=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, Driver_id);
+            statement.setInt(2, bookingId);
+            int rowsUpdated = statement.executeUpdate();
+            
+            if (rowsUpdated > 0) {
+                return "Driver assigned successfully!";
+            } else {
+                return "No booking found with the provided ID.";
+            }
+        }
+    }
+}*/
 }

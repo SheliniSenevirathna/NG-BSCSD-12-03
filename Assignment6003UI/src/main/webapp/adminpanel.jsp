@@ -89,11 +89,11 @@
         <h2>Admin Panel</h2>
         <ul>
             <li><a href="adminpanel.jsp">Dashboard</a></li>
-            <li><a href="manage_cus.html">Manage Customers</a></li>
-            <li><a href="manage_booking.html">Manage Bookings</a></li>
-            <li><a href="manage_vehicle.html">Manage Vehicles</a></li>
-            <li><a href="manage_drivers.html">Manage Drivers</a></li>
-            <li><a href="payment.html">Payments</a></li>
+            <li><a href="manage_cus.html">View Customers</a></li>
+            <li><a href="viewbooking.jsp">View Bookings</a></li>
+            <li><a href="addvehicle.jsp">Manage Vehicles</a></li>
+            <li><a href="managedriver.jsp">Manage Drivers</a></li>
+            <li><a href="viewallpayments.jsp">Payments</a></li>
             <li><a href="index.jsp.">Logout</a></li>
         </ul>
     </div>

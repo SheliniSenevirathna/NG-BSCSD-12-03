@@ -3,6 +3,8 @@ package com.megacitycab.webservice;
 import com.megacitycab.dao.BookingDAO;
 import com.megacitycab.model.Booking;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.HttpHeaders;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import java.sql.SQLException;
@@ -34,7 +36,36 @@ public class BookingResource {
                           .build();
         }
     }
+    
 
+
+//    @POST
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public Response createBooking(bookingRequest bookingRequest) {
+//        try {
+//            boolean isCreated = bookingDAO.createBooking(bookingRequest.getbk_pickup_location(), bookingRequest.getbk_dropoff_location(), bookingRequest.getbk_from_date(), bookingRequest.getbk_to_date(),bookingRequest.getpassengers(), bookingRequest.getcab_type(), bookingRequest.gettrip_type());
+//            if (isCreated) {
+//                return Response.status(Response.Status.CREATED)
+//                        .entity("User created successfully")
+//                        .build();
+//            } else {
+//                return Response.status(Response.Status.BAD_REQUEST)
+//                        .entity("Failed to create user")
+//                        .build();
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+//                    .entity("Error creating user: " + e.getMessage())
+//                    .build();
+//        }
+
+ 
+    
+    
+    
+    
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -104,4 +135,33 @@ public class BookingResource {
                           .build();
         }
     }
+    
+   /* @PUT
+@Path("/{id}/assigndriver")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+public Response updateBooking(@PathParam("id") int bookingId, @QueryParam("assigndriver") int driverId) {
+    LOGGER.log(Level.INFO, "updateBooking method called for booking ID: {0}", bookingId);
+    String message = "";
+
+    // Validate input parameters
+    if (bookingId <= 0 || driverId <= 0) {
+        LOGGER.warning("Invalid booking ID or driver ID provided");
+        return Response.status(Response.Status.BAD_REQUEST)
+                      .entity("Invalid booking ID or driver ID.")
+                      .build();
+    }
+
+    try {
+        // Call the DAO method to assign the driver
+        message = bookingDAO.AssignDriver(driverId, bookingId);
+        LOGGER.log(Level.INFO, "Updated Driver for Booking: {0}", driverId);
+        return Response.ok(message).build();
+    } catch (SQLException e) {
+        LOGGER.log(Level.SEVERE, "Error updating booking in the database", e);
+        return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
+                      .entity("An error occurred while updating the booking. Please try again later.")
+                      .build();
+    }
+}*/
 }

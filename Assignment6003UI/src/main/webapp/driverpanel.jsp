@@ -100,7 +100,7 @@
         <ul>
             <li><a href="index.jsp">Dashboard</a></li>
             <li><a href="#">Assigned Rides</a></li>
-            <li><a href="#">Schedule</a></li>
+            <li><a href="schedule.jsp">Schedule</a></li>
             <li><a href="#">Earnings</a></li>
             <li><a href="index.jsp">Logout</a></li>
         </ul>

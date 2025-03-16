@@ -116,6 +116,7 @@
             position: absolute;
             bottom: 0;
         }
+        
     </style>
     </head>
     <body>
@@ -130,6 +131,7 @@
         Destination: <input type="text" name="destination" required><br>
         Distance (km): <input type="number" step="0.1" name="distance" required><br>
         <input type="submit" value="Add Booking">
+        <input type="button" value="View Bill" onclick="window.location.href='billing.jsp';">
     </form>
         </div>
     </body>

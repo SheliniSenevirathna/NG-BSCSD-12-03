@@ -10,80 +10,130 @@ package com.megacitycab.model;
  */
 public class Customer {
     
-    private int customerId;
+    private int customer_id;
     private String name;
     private String address;
     private String nic;
-    private String phone;
+    private String contact_no;
+    
+    
 
-    /**
-     * @return the customerId
-     */
-    public int getCustomerId() {
-        return customerId;
+//    /**
+//     * @return the customer_id
+//     */
+//    public int getCustomer_id() {
+//        return customer_id;
+//    }
+//
+//    /**
+//     * @param customer_id the customer_id to set
+//     */
+//    public void setCustomer_id(int customer_id) {
+//        this.customer_id = customer_id;
+//    }
+//
+//    /**
+//     * @return the name
+//     */
+//    public String getName() {
+//        return name;
+//    }
+//
+//    /**
+//     * @param name the name to set
+//     */
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    /**
+//     * @return the address
+//     */
+//    public String getAddress() {
+//        return address;
+//    }
+//
+//    /**
+//     * @param address the address to set
+//     */
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
+//
+//    /**
+//     * @return the nic
+//     */
+//    public String getNic() {
+//        return nic;
+//    }
+//
+//    /**
+//     * @param nic the nic to set
+//     */
+//    public void setNic(String nic) {
+//        this.nic = nic;
+//    }
+//
+//    /**
+//     * @return the contact_no
+//     */
+//    public String getContact_no() {
+//        return contact_no;
+//    }
+//
+//    /**
+//     * @param contact_no the contact_no to set
+//     */
+//    public void setContact_no(String contact_no) {
+//        this.contact_no = contact_no;
+//    }
+//
+////    public String getContact_No() {
+////        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+////    }
+//
+//    public String getContact_No() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+
+    public int getCustomer_id() {
+        return customer_id;
     }
 
-    /**
-     * @param customerId the customerId to set
-     */
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
     }
 
-    /**
-     * @return the name
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * @param name the name to set
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * @return the address
-     */
     public String getAddress() {
         return address;
     }
 
-    /**
-     * @param address the address to set
-     */
     public void setAddress(String address) {
         this.address = address;
     }
 
-    /**
-     * @return the nic
-     */
     public String getNic() {
         return nic;
     }
 
-    /**
-     * @param nic the nic to set
-     */
     public void setNic(String nic) {
         this.nic = nic;
     }
 
-    /**
-     * @return the phone
-     */
-    public String getPhone() {
-        return phone;
+    public String getContact_no() {
+        return contact_no;
     }
 
-    /**
-     * @param phone the phone to set
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setContact_no(String contact_no) {
+        this.contact_no = contact_no;
     }
     
 

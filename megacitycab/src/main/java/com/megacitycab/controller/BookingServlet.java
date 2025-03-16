@@ -55,7 +55,7 @@ public class BookingServlet extends HttpServlet {
         customer.setName(request.getParameter("name"));
         customer.setAddress(request.getParameter("address"));
         customer.setNic(request.getParameter("nic"));
-        customer.setPhone(request.getParameter("phone"));
+        customer.setContact_no(request.getParameter("contact_no"));
 
         Booking booking = new Booking();
         booking.setDestination(request.getParameter("destination"));
